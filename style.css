@@ -1,0 +1,1058 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background: #f4f6fb;
+  --card: rgba(255, 255, 255, 0.9);
+  --text: #1f2937;
+  --secondary-text: #6b7280;
+  --border: #e5e7eb;
+
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+
+  --danger: #ef4444;
+
+  --input-bg: #ffffff;
+
+  --shadow-sm: 0 4px 14px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 12px 30px rgba(15, 23, 42, 0.1);
+  --shadow-lg: 0 20px 50px rgba(15, 23, 42, 0.14);
+
+  --radius-lg: 18px;
+  --radius-md: 12px;
+}
+
+
+body {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(99, 102, 241, 0.12),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at top right,
+      rgba(168, 85, 247, 0.12),
+      transparent 28%
+    ),
+    var(--background);
+
+  color: var(--text);
+
+  min-height: 100vh;
+
+  transition: background 0.3s ease,
+              color 0.3s ease;
+}
+
+
+/* -----------------------
+   DARK MODE
+----------------------- */
+
+body.dark-theme {
+  --background: #0f172a;
+
+  --card: rgba(30, 41, 59, 0.92);
+
+  --text: #f8fafc;
+
+  --secondary-text: #94a3b8;
+
+  --border: #334155;
+
+  --primary: #818cf8;
+
+  --primary-hover: #6366f1;
+
+  --input-bg: #111827;
+
+  --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.2);
+
+  --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.3);
+
+  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+
+/* -----------------------
+   HEADER
+----------------------- */
+
+.header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 36px 8%;
+
+  margin: 24px auto 0;
+
+  width: 88%;
+
+  max-width: 1400px;
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(99, 102, 241, 0.95),
+      rgba(124, 58, 237, 0.92)
+    );
+
+  color: white;
+
+  box-shadow: var(--shadow-lg);
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+
+.header::before {
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+
+  height: 220px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  right: -70px;
+
+  top: -90px;
+}
+
+
+.header::after {
+  content: "";
+
+  position: absolute;
+
+  width: 150px;
+
+  height: 150px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  left: 40%;
+
+  bottom: -90px;
+}
+
+
+.header > * {
+  position: relative;
+
+  z-index: 2;
+}
+
+
+.header h1 {
+  font-size: 36px;
+
+  font-weight: 800;
+
+  margin-bottom: 8px;
+
+  letter-spacing: -0.5px;
+}
+
+
+.header p {
+  color: rgba(255, 255, 255, 0.85);
+
+  font-size: 15px;
+}
+
+
+/* -----------------------
+   THEME BUTTON
+----------------------- */
+
+.theme-btn {
+  width: 50px;
+
+  height: 50px;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  border-radius: 14px;
+
+  font-size: 21px;
+
+  cursor: pointer;
+
+  background: rgba(255, 255, 255, 0.16);
+
+  backdrop-filter: blur(10px);
+
+  color: white;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  transition: all 0.2s ease;
+}
+
+
+.theme-btn:hover {
+  transform: translateY(-2px) rotate(6deg);
+
+  background: rgba(255, 255, 255, 0.26);
+}
+
+
+/* -----------------------
+   MAIN CONTAINER
+----------------------- */
+
+.container {
+  width: 88%;
+
+  max-width: 1400px;
+
+  margin: 32px auto 60px;
+}
+
+
+/* -----------------------
+   TOOLBAR
+----------------------- */
+
+.toolbar {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 16px;
+
+  margin-bottom: 34px;
+
+  padding: 18px;
+
+  border-radius: 18px;
+
+  background: var(--card);
+
+  border: 1px solid var(--border);
+
+  box-shadow: var(--shadow-sm);
+
+  backdrop-filter: blur(14px);
+}
+
+
+.search-input {
+  flex: 1;
+
+  min-height: 52px;
+
+  padding: 0 18px;
+
+  border-radius: 12px;
+
+  border: 1px solid var(--border);
+
+  background: var(--input-bg);
+
+  color: var(--text);
+
+  font-size: 15px;
+
+  outline: none;
+
+  transition: all 0.2s ease;
+}
+
+
+.search-input::placeholder {
+  color: var(--secondary-text);
+}
+
+
+.search-input:focus {
+  border-color: var(--primary);
+
+  box-shadow:
+    0 0 0 4px rgba(99, 102, 241, 0.12);
+}
+
+
+/* -----------------------
+   ADD NOTE BUTTON
+----------------------- */
+
+.add-note-btn {
+  min-height: 52px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--primary),
+      #8b5cf6
+    );
+
+  color: white;
+
+  border: none;
+
+  padding: 0 24px;
+
+  border-radius: 12px;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+
+  white-space: nowrap;
+
+  box-shadow:
+    0 8px 18px rgba(99, 102, 241, 0.22);
+}
+
+
+.add-note-btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 24px rgba(99, 102, 241, 0.3);
+}
+
+
+.add-note-btn:active {
+  transform: translateY(0);
+}
+
+
+/* -----------------------
+   NOTES GRID
+----------------------- */
+
+.notes-container {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fill, minmax(280px, 1fr));
+
+  gap: 24px;
+}
+
+
+/* -----------------------
+   NOTE CARD
+----------------------- */
+
+.note-card {
+  position: relative;
+
+  background: var(--card);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-lg);
+
+  padding: 22px;
+
+  min-height: 240px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  box-shadow: var(--shadow-sm);
+
+  backdrop-filter: blur(12px);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+
+  overflow: hidden;
+
+  animation: noteAppear 0.3s ease;
+}
+
+
+.note-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 4px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #6366f1,
+      #8b5cf6,
+      #ec4899
+    );
+
+  opacity: 0;
+
+  transition: opacity 0.2s ease;
+}
+
+
+.note-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow: var(--shadow-md);
+
+  border-color:
+    rgba(99, 102, 241, 0.35);
+}
+
+
+.note-card:hover::before {
+  opacity: 1;
+}
+
+
+@keyframes noteAppear {
+  from {
+    opacity: 0;
+
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+
+/* -----------------------
+   PINNED NOTE
+----------------------- */
+
+.pinned-note {
+  border: 2px solid var(--primary);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(99, 102, 241, 0.05),
+      var(--card)
+    );
+}
+
+
+.pinned-note::before {
+  opacity: 1;
+}
+
+
+/* -----------------------
+   NOTE TOP
+----------------------- */
+
+.note-top {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  gap: 12px;
+}
+
+
+.note-title {
+  font-size: 20px;
+
+  font-weight: 750;
+
+  line-height: 1.3;
+
+  word-break: break-word;
+
+  letter-spacing: -0.2px;
+}
+
+
+.note-content {
+  margin-top: 14px;
+
+  color: var(--secondary-text);
+
+  font-size: 14px;
+
+  line-height: 1.7;
+
+  white-space: pre-wrap;
+
+  overflow-wrap: anywhere;
+
+  flex: 1;
+}
+
+
+.note-date {
+  margin-top: 22px;
+
+  padding-top: 14px;
+
+  border-top: 1px solid var(--border);
+
+  font-size: 11px;
+
+  color: var(--secondary-text);
+}
+
+
+/* -----------------------
+   NOTE ACTIONS
+----------------------- */
+
+.note-actions {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 9px;
+
+  margin-top: 14px;
+}
+
+
+.edit-btn,
+.delete-btn,
+.pin-btn {
+  width: 38px;
+
+  height: 38px;
+
+  border-radius: 10px;
+
+  border: none;
+
+  cursor: pointer;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  transition: all 0.18s ease;
+}
+
+
+.edit-btn {
+  color: var(--primary);
+
+  background:
+    rgba(99, 102, 241, 0.1);
+}
+
+
+.edit-btn:hover {
+  background:
+    rgba(99, 102, 241, 0.18);
+
+  transform: translateY(-2px);
+}
+
+
+.delete-btn {
+  color: var(--danger);
+
+  background:
+    rgba(239, 68, 68, 0.1);
+}
+
+
+.delete-btn:hover {
+  background:
+    rgba(239, 68, 68, 0.18);
+
+  transform: translateY(-2px);
+}
+
+
+.pin-btn {
+  background:
+    rgba(245, 158, 11, 0.1);
+
+  font-size: 17px;
+}
+
+
+.pin-btn:hover {
+  background:
+    rgba(245, 158, 11, 0.2);
+
+  transform: translateY(-2px) rotate(-8deg);
+}
+
+
+/* -----------------------
+   EMPTY STATE
+----------------------- */
+
+.empty-state {
+  grid-column: 1 / -1;
+
+  text-align: center;
+
+  max-width: 520px;
+
+  width: 100%;
+
+  margin: 60px auto;
+
+  padding: 50px 30px;
+
+  border-radius: 24px;
+
+  background: var(--card);
+
+  border: 1px solid var(--border);
+
+  box-shadow: var(--shadow-sm);
+
+  backdrop-filter: blur(14px);
+}
+
+
+.empty-icon {
+  width: 76px;
+
+  height: 76px;
+
+  border-radius: 22px;
+
+  margin: 0 auto 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 34px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(99, 102, 241, 0.13),
+      rgba(139, 92, 246, 0.15)
+    );
+}
+
+
+.empty-state h2 {
+  font-size: 26px;
+
+  margin-bottom: 10px;
+}
+
+
+.empty-state p {
+  color: var(--secondary-text);
+
+  margin-bottom: 26px;
+
+  line-height: 1.6;
+}
+
+
+/* -----------------------
+   DIALOG
+----------------------- */
+
+.note-dialog {
+  width: 92%;
+
+  max-width: 540px;
+
+  padding: 0;
+
+  border: none;
+
+  border-radius: 20px;
+
+  background: var(--card);
+
+  color: var(--text);
+
+  margin: auto;
+
+  box-shadow: var(--shadow-lg);
+
+  overflow: hidden;
+}
+
+
+.note-dialog::backdrop {
+  background:
+    rgba(15, 23, 42, 0.55);
+
+  backdrop-filter: blur(8px);
+}
+
+
+.note-dialog form {
+  padding: 28px;
+}
+
+
+/* -----------------------
+   DIALOG HEADER
+----------------------- */
+
+.dialog-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 26px;
+}
+
+
+.dialog-header h2 {
+  font-size: 24px;
+
+  font-weight: 750;
+}
+
+
+.close-btn {
+  width: 38px;
+
+  height: 38px;
+
+  border-radius: 10px;
+
+  background: var(--background);
+
+  border: none;
+
+  color: var(--secondary-text);
+
+  font-size: 25px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+
+.close-btn:hover {
+  color: var(--text);
+
+  transform: rotate(6deg);
+}
+
+
+/* -----------------------
+   FORM
+----------------------- */
+
+.form-group {
+  margin-bottom: 22px;
+}
+
+
+.form-group label {
+  display: block;
+
+  margin-bottom: 9px;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+
+  padding: 13px 14px;
+
+  border-radius: 11px;
+
+  border: 1px solid var(--border);
+
+  background: var(--input-bg);
+
+  color: var(--text);
+
+  font-size: 14px;
+
+  outline: none;
+
+  transition: 0.2s ease;
+}
+
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--primary);
+
+  box-shadow:
+    0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+
+.form-group textarea {
+  min-height: 170px;
+
+  resize: vertical;
+
+  font-family: inherit;
+
+  line-height: 1.6;
+}
+
+
+.character-counter {
+  text-align: right;
+
+  color: var(--secondary-text);
+
+  font-size: 11px;
+
+  margin-top: 7px;
+}
+
+
+/* -----------------------
+   DIALOG ACTIONS
+----------------------- */
+
+.dialog-actions {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 10px;
+}
+
+
+.save-btn,
+.cancel-btn {
+  padding: 12px 20px;
+
+  border-radius: 10px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+
+.save-btn {
+  border: none;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--primary),
+      #8b5cf6
+    );
+
+  color: white;
+
+  box-shadow:
+    0 7px 16px rgba(99, 102, 241, 0.2);
+}
+
+
+.save-btn:hover {
+  transform: translateY(-2px);
+}
+
+
+.cancel-btn {
+  background: transparent;
+
+  border: 1px solid var(--border);
+
+  color: var(--text);
+}
+
+
+.cancel-btn:hover {
+  background: var(--background);
+}
+
+
+/* -----------------------
+   DARK MODE TWEAKS
+----------------------- */
+
+body.dark-theme .note-card {
+  background:
+    rgba(30, 41, 59, 0.92);
+}
+
+
+body.dark-theme .toolbar {
+  background:
+    rgba(30, 41, 59, 0.88);
+}
+
+
+body.dark-theme .empty-state {
+  background:
+    rgba(30, 41, 59, 0.9);
+}
+
+
+body.dark-theme .search-input:focus,
+body.dark-theme .form-group input:focus,
+body.dark-theme .form-group textarea:focus {
+  box-shadow:
+    0 0 0 4px rgba(129, 140, 248, 0.15);
+}
+
+
+/* -----------------------
+   TABLET
+----------------------- */
+
+@media (max-width: 900px) {
+
+  .header {
+    width: 92%;
+
+    padding: 30px 6%;
+  }
+
+
+  .container {
+    width: 92%;
+  }
+
+
+  .header h1 {
+    font-size: 30px;
+  }
+
+}
+
+
+/* -----------------------
+   MOBILE
+----------------------- */
+
+@media (max-width: 600px) {
+
+  .header {
+    width: 94%;
+
+    margin-top: 14px;
+
+    padding: 24px;
+
+    border-radius: 18px;
+  }
+
+
+  .header h1 {
+    font-size: 27px;
+  }
+
+
+  .header p {
+    font-size: 13px;
+  }
+
+
+  .theme-btn {
+    width: 44px;
+
+    height: 44px;
+  }
+
+
+  .container {
+    width: 94%;
+
+    margin-top: 22px;
+  }
+
+
+  .toolbar {
+    flex-direction: column;
+
+    padding: 14px;
+  }
+
+
+  .search-input {
+    width: 100%;
+  }
+
+
+  .add-note-btn {
+    width: 100%;
+  }
+
+
+  .notes-container {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+
+  .note-card {
+    min-height: 210px;
+  }
+
+
+  .empty-state {
+    margin-top: 30px;
+
+    padding: 38px 22px;
+  }
+
+
+  .note-dialog form {
+    padding: 22px;
+  }
+
+}
