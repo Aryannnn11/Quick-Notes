@@ -28,7 +28,7 @@ quick-notes/
 │
 ├── index.html
 ├── style.css
-├── script.js
+├── app.js
 └── README.md
 ```
 
@@ -37,7 +37,7 @@ quick-notes/
 Clone the repository:
 
 ```bash
-git clone YOUR_REPOSITORY_URL
+git clone https://github.com/Aryannnn11/quick-notes.git
 ```
 
 Open the project folder:
